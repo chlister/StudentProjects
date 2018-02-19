@@ -1,0 +1,7 @@
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\bin\Debug\TemplateAss.exe.config
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\bin\Debug\TemplateAss.exe
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\bin\Debug\TemplateAss.pdb
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\obj\Debug\TemplateAss.csprojResolveAssemblyReference.cache
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\obj\Debug\TemplateAss.csproj.CoreCompileInputs.cache
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\obj\Debug\TemplateAss.exe
+C:\Users\mr-jm\Source\Repos\McBeast\TemplateAss\TemplateAss\obj\Debug\TemplateAss.pdb

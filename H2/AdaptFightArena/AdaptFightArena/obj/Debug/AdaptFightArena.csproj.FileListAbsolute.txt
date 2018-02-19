@@ -1,0 +1,7 @@
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\bin\Debug\AdaptFightArena.exe.config
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\bin\Debug\AdaptFightArena.exe
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\bin\Debug\AdaptFightArena.pdb
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\obj\Debug\AdaptFightArena.csprojResolveAssemblyReference.cache
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\obj\Debug\AdaptFightArena.csproj.CoreCompileInputs.cache
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\obj\Debug\AdaptFightArena.exe
+C:\Users\mr-jm\Source\Repos\H2_Assignments\AdaptFightArena\AdaptFightArena\obj\Debug\AdaptFightArena.pdb
