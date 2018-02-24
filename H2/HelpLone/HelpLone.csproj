@@ -44,6 +44,10 @@
   <ItemGroup>
     <Compile Include="Barbarian.cs" />
     <Compile Include="ICharacter.cs" />
+    <Compile Include="IMagicAttack.cs" />
+    <Compile Include="IMagicDefence.cs" />
+    <Compile Include="IShieldDefence.cs" />
+    <Compile Include="IWarrior.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
