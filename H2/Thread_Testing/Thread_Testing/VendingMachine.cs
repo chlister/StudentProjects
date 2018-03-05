@@ -22,6 +22,7 @@ namespace Thread_Testing
                 return instance;
             }
         }
+        public object _lock = new object();
         public int RowSize { get; set; } = 15;
         public List<Product> Products
         {

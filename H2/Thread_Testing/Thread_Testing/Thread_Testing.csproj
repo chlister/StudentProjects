@@ -46,8 +46,10 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductFactory.cs" />
     <Compile Include="Models\Soda.cs" />
+    <None Include="PingPong.cs" />
+    <Compile Include="QuickTest.cs" />
     <Compile Include="VendingMachine.cs" />
-    <Compile Include="Program.cs" />
+    <None Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
