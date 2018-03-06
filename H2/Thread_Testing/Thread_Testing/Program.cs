@@ -4,126 +4,79 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Thread_Testing.Models;
 
 namespace Thread_Testing
 {
     class Program
     {
+        static int limit = 15;
+        static Queue<int> bottles = new Queue<int>(limit);
+
         static void Main(string[] args)
         {
+            if (bottles.Count <= limit)
+            {
 
-            // Start another class
-            MyThread producer = new MyThread("Producer");
-            MyThread consumer = new MyThread("Consumer");
+            }
+            Thread t1 = new Thread(Producer);
+            Thread t2 = new Thread(Consumer);
+            //Thread t3 = new Thread(NoSafety);
+            t1.Start();
+            t2.Start();
+            //t3.Start();
+            t1.Join();
+            t2.Join();
             Console.ReadLine();
         }
-
-    }
-    public class MyThread
-    {
-        //object _lock = new object();
-        public Thread thread;
-        public MyThread(string _name)
+        static void Producer()
         {
-            thread = new Thread(new ThreadStart(this.Run));
-            thread.Name = _name;
-            thread.Start();
-        }
-        void Run()
-        {
-            if (thread.Name == "Producer")
-            {
-                FillMachine();
-            }
-            else
-            {
-                ConsumeProducts();
-            }
-
-        }
-        public void FillMachine()
-        {
-            ProductFactory pf = new ProductFactory();
+            // Gives bottles to the machine
             while (true)
             {
-                Monitor.Enter(VendingMachine.Instance._lock);
+                lock (bottles)
                 {
-                    //lock (VendingMachine.Instance._lock)
+                    bottles.Enqueue(22);
+                    Thread.Sleep(1000);
 
+                    Console.WriteLine("Ill give you bottles");
+                    Console.Beep();
+                    Monitor.Enter(bottles);
+                    if (bottles.Count > 0)
+                    {
+                        for (int i = 0; i < limit - bottles.Count; i++)
+                        {
 
-                    // Works fine but i need to stop the thread when machine is filled
-                    //{
-                    if (VendingMachine.Instance.Beers.Count() < VendingMachine.Instance.RowSize)
-                    {
-                        // I can typecast the object i get in return because i know it's the right type
-                        VendingMachine.Instance.Beers.Enqueue((Beer)pf.CreateProduct("Beer"));
-                        Console.WriteLine("Current Beer count: " + VendingMachine.Instance.Beers.Count());
+                            bottles.Enqueue(limit);
+                        }
                     }
-                    if (VendingMachine.Instance.Sodas.Count() < VendingMachine.Instance.RowSize)
-                    {
-                        VendingMachine.Instance.Sodas.Enqueue((Soda)pf.CreateProduct("Soda"));
-                        Console.WriteLine("Current soda count:  " + VendingMachine.Instance.Sodas.Count());
-                    }
-                    if (VendingMachine.Instance.Sodas.Count() == VendingMachine.Instance.RowSize && VendingMachine.Instance.Beers.Count() == VendingMachine.Instance.RowSize)
-                    {
-                        Console.WriteLine("Machine is full - I am waiting");
-                        Monitor.Wait(VendingMachine.Instance._lock);
-                    }
-                    Console.WriteLine("Producer is sleeping");
-                    Thread.Sleep(2000);
-                    Console.WriteLine("Producer pulses all");
-                    Monitor.PulseAll(VendingMachine.Instance._lock);
+                    Monitor.PulseAll(bottles);
+                    Monitor.Exit(bottles);
+                    Console.WriteLine(bottles.Count);
                 }
             }
-            Console.WriteLine(Thread.CurrentThread.Name + "I am exiting the lock");
-            Monitor.Exit(VendingMachine.Instance._lock);
+            //Console.WriteLine("");
         }
-        public void ConsumeProducts()
+        static void Consumer()
         {
-            Random rnd = new Random();
-            int num = rnd.Next(2);
-
+            // Consumes bottles from the machine into reciept
             while (true)
             {
-                //lock (VendingMachine.Instance._lock)
-
-
-                Monitor.Enter(VendingMachine.Instance._lock);
+                lock (bottles)
                 {
-                    if (num == 1)
+
+                    if (bottles.Count == 0)
                     {
-                        if (VendingMachine.Instance.Beers.Count() > 0)
-                        {
-                            // I can typecast the object i get in return because i know it's the right type
-                            Console.WriteLine("I got this Beer: " + VendingMachine.Instance.Beers.Dequeue().Name);
-                        }
-                        else
-                        {
-                            Console.WriteLine(Thread.CurrentThread.Name + " Hello?");
-                            //Monitor.Wait(VendingMachine.Instance._lock);
-                        }
+                        Monitor.Enter(bottles);
+                        Console.WriteLine("No botttles ! ill wait!");
+                        Monitor.Wait(bottles);
+                        Monitor.Exit(bottles);
                     }
-                    else
-                    {
-                        if (VendingMachine.Instance.Sodas.Count() > 0)
-                        {
-                            Console.WriteLine("I got this soda: " + VendingMachine.Instance.Sodas.Dequeue().Name);
-                        }
-                        else
-                        {
-                            Console.WriteLine(Thread.CurrentThread.Name + " Hello?");
-                            //Monitor.Wait(VendingMachine.Instance._lock);
-                        }
-                    }
-                    Monitor.Wait(VendingMachine.Instance._lock);
-                    Monitor.PulseAll(VendingMachine.Instance._lock);
-                    Console.WriteLine("Consumer is sleeping");
-                    Thread.Sleep(10000);
+                    Console.WriteLine("Ill take you bottles");
+                    bottles.Dequeue();
+                    Console.WriteLine(bottles.Count);
+
                 }
             }
-            Console.WriteLine(Thread.CurrentThread.Name + "I am exiting the lock");
-            Monitor.Exit(VendingMachine.Instance._lock);
         }
     }
 }
