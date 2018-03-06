@@ -44,14 +44,14 @@
   <ItemGroup>
     <None Include="PingPong.cs" />
     <None Include="QuickTest.cs" />
+    <Compile Include="BottleMachine.cs" />
+    <Compile Include="Models\Bottle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
