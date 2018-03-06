@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\H2"
+    "\\H2",
+    "\\H2\\Thread_Testing"
   ],
-  "SelectedNode": "\\H2\\.gitignore",
+  "SelectedNode": "\\H2\\Thread_Testing\\Thread_Testing.sln",
   "PreviewInSolutionExplorer": false
 }
