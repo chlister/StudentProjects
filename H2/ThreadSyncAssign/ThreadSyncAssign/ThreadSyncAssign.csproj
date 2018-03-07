@@ -48,7 +48,7 @@
     <None Include="Assignment_4.cs" />
     <None Include="Assignment_5.cs" />
     <None Include="MSDN_ThreadMon_Test.cs" />
-    <Compile Include="Assignment_6.cs" />
+    <None Include="Assignment_6.cs" />
     <None Include="Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
