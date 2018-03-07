@@ -16,13 +16,19 @@ namespace Thread_Testing
         {
             Thread t1 = new Thread(Producer);
             Thread t2 = new Thread(Consumer);
-            t1.Start();
-            t2.Start();
+            try
+            {
+                t1.Start();
+                t2.Start();
+                t1.Join();
+                t2.Join();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
 
 
-
-            t1.Join();
-            t2.Join();
             Console.ReadLine();
         }
         static void Producer()
@@ -65,7 +71,7 @@ namespace Thread_Testing
                         Monitor.Wait(bottles);
                         Monitor.Exit(bottles);
                     }
-                    Console.WriteLine("Ill take you bottles");
+                    Console.WriteLine("Ill take your bottles");
                     Thread.Sleep(1000);
                     int amount = bottles.Count;
 
