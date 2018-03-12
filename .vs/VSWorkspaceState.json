@@ -2,13 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\H2",
-    "\\H2\\ThreadingTest",
     "\\H2\\ThreadingTest\\ThreadingTest\\Properties",
     "\\H2\\ThreadSyncAssign",
     "\\H2\\ThreadSyncAssign\\ThreadSyncAssign",
     "\\H2\\ThreadSyncAssign\\ThreadSyncAssign\\Properties",
+    "\\H2\\Thread_Testing",
     "\\H2\\Thread_Testing\\Thread_Testing"
   ],
-  "SelectedNode": "\\H2\\ThreadSyncAssign\\ThreadSyncAssign.sln",
+  "SelectedNode": "\\H2\\Thread_Testing\\Thread_Testing\\PingPong.cs",
   "PreviewInSolutionExplorer": false
 }
