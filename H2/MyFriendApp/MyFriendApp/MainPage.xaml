@@ -1,0 +1,17 @@
+﻿<Page x:Name="Page_1"
+    x:Class="MyFriendApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyFriendApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="MainGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="IndianRed">
+        <StackPanel x:Name="FriendMethods" Background="Blue" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical" Height="{Binding ElementName=MainGrid, Path=ActualHeight}" Width="50"></StackPanel>
+        <Canvas x:Name="LivingCan"  Width="{Binding ActualWidth, ElementName=MainGrid}" Height="{Binding ActualHeight,ElementName=MainGrid}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="Living_Room"  Source="Assets/19032-NSAXX6.jpg" Width="{Binding ActualWidth, ElementName=MainGrid}" Height="{Binding ActualHeight, ElementName=MainGrid}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Hello" Canvas.Left="729" Canvas.Top="477"></TextBlock>
+        </Canvas>
+    </Grid>
+</Page>

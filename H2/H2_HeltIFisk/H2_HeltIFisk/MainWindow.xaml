@@ -1,0 +1,44 @@
+﻿<Window x:Name="window" x:Class="H2_HeltIFisk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:H2_HeltIFisk"
+        xmlns:animal="clr-namespace:H2_HeltIFisk.ViewModel" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <animal:AnimalPictureConverter x:Key="AnimalPictureConverter"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <animal:AnimalViewModel/>
+    </Window.DataContext>
+    <DockPanel
+        LastChildFill="true" HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch" Background="Black">
+        <ListBox DockPanel.Dock="left" Foreground="White" Background="Black" ItemsSource="{Binding Animals}" SelectedItem="{Binding CurrentAnimal}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Name, Mode=OneWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Canvas x:Name="can_1" Background="Black">
+            <Image  Stretch="Fill" Width="{Binding ActualWidth, ElementName=can_1, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=can_1, Mode=OneWay}" Source="{Binding CurrentAnimal.Name, Converter={StaticResource AnimalPictureConverter}}" />
+            <Canvas x:Name="Info" Canvas.Bottom="3" Height="50" Width="{Binding ActualWidth, ElementName=can_1, Mode=OneWay}" Background="#7F000000">
+                <StackPanel Height="{Binding ActualHeight, ElementName=Info, Mode=OneWay}" Width="{Binding ActualWidth, ElementName=Info, Mode=OneWay}" Margin="0">
+                <TextBlock x:Name="fishName"  Width="{Binding ActualWidth, ElementName=Info, Mode=OneWay}" Foreground="White" Text="{Binding CurrentAnimal.Name}" FontSize="18" TextAlignment="Center"/>
+                    <TextBlock x:Name="fishLength" Text="{Binding CurrentAnimal.Length}" Foreground="White" />
+                    <TextBlock x:Name="fishWidth" Text="{Binding CurrentAnimal.Weight}" Foreground="White"/>
+                </StackPanel>
+            </Canvas>
+            <StackPanel>
+                <TextBlock  Background="Black" Foreground="White" Opacity="0.5" Text="{Binding Animals/Length}">
+
+                </TextBlock>
+            </StackPanel>
+        </Canvas>
+    </DockPanel>
+</Window>
