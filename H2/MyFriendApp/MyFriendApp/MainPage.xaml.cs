@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFriendApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace MyFriendApp
         public MainPage()
         {
             this.InitializeComponent();
+
         }
     }
 }
