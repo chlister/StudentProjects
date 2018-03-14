@@ -14,6 +14,8 @@ namespace StatePattern.Model
 
         // Used to change the current state
         void ChangeState(IState state);
+        // This event is called when values inside Hero changes
+        event EventHandler ValueChanged;
         // Used to proclaim a change in state
         void OnValueChanged(EventArgs ea);
     }

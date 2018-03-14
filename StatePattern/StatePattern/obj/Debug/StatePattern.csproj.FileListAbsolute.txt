@@ -1,0 +1,7 @@
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\obj\Debug\StatePattern.csprojResolveAssemblyReference.cache
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\obj\Debug\StatePattern.csproj.CoreCompileInputs.cache
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\bin\Debug\StatePattern.exe.config
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\bin\Debug\StatePattern.exe
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\bin\Debug\StatePattern.pdb
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\obj\Debug\StatePattern.exe
+C:\Users\mr-jm\source\repos\StudentProjects\StatePattern\StatePattern\obj\Debug\StatePattern.pdb

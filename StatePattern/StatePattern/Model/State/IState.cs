@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StatePattern.Model.State
 {
-    public interface IState : IHero
+    /// <summary>
+    /// Used to define all the methods our Hero can do
+    /// </summary>
+    public interface IState
     {
         void SaveTheDay();
         void BattleVillain();

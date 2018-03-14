@@ -10,7 +10,7 @@ namespace StatePattern
     {
         static void Main(string[] args)
         {
-
+            Console.ReadLine();
         }
     }
 }

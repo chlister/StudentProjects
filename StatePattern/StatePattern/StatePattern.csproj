@@ -46,8 +46,10 @@
     <Compile Include="Model\IHero.cs" />
     <Compile Include="Model\State\HungryState.cs" />
     <Compile Include="Model\State\IState.cs" />
+    <Compile Include="Model\State\State.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\ValueEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
