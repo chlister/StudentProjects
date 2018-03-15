@@ -1,6 +1,7 @@
 ﻿using MyFriendApp.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,10 +24,17 @@ namespace MyFriendApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        HeroViewModel view = new HeroViewModel();
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = view;
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Button pressed - feeding");
+            view.Feed();
         }
     }
 }

@@ -8,7 +8,7 @@ using MyFriendApp.Model.State;
 
 namespace MyFriendApp.Model
 {
-    class Hero : IHero
+    class Hero : IHero, IState
     {
         private IState currentState, hungryState, sleepyState, moodState;
 
@@ -36,6 +36,21 @@ namespace MyFriendApp.Model
         public void OnValueChanged(EventArgs ea)
         {
             ValueChanged?.Invoke(this, ea);
+        }
+
+        public void Feed()
+        {
+            hungryState.
+        }
+
+        public void Sleep()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TalkTo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,7 +14,7 @@
 
     <StackPanel Orientation="Horizontal" Background="IndianRed">
         <StackPanel Width="120">
-            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0"/>
+            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click"/>
 
         </StackPanel>
         <Canvas Height="770" Width="770">

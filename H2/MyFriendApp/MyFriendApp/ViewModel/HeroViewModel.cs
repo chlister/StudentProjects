@@ -15,7 +15,7 @@ namespace MyFriendApp.ViewModel
     class HeroViewModel : ViewModelBase
     {
         private int hungry;
-
+        private IHero hero;
         public int Hungry
         {
             get { return hungry; }
@@ -29,7 +29,7 @@ namespace MyFriendApp.ViewModel
         public HeroViewModel()
         {
             // Start the Hero
-            IHero hero = new Hero();
+            hero = new Hero();
 
             hero.ValueChanged += ValueChanged;
 
@@ -48,7 +48,8 @@ namespace MyFriendApp.ViewModel
         }
         public void Feed()
         {
-            hungry += 10;
+            hero.Feed();
+            //Hungry += 10;
         }
 
     }
