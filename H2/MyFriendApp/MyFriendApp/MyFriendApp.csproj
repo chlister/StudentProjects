@@ -108,6 +108,7 @@
     <Compile Include="Model\ValueEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\HeroViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

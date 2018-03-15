@@ -14,8 +14,8 @@
 
     <StackPanel Orientation="Horizontal" Background="IndianRed">
         <StackPanel Width="120">
-            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click_Food"/>
-            <Button Content="Go to sleep" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click_Sleep"/>
+            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Command="{Binding FeedCommand}"/>
+            <Button Content="Go to sleep" HorizontalAlignment="Stretch" Margin="0,20,0,0" Command="{Binding PutToSleepCommand}"/>
         </StackPanel>
         <Canvas Height="770" Width="770">
             <Image Source="Assets/LivingRoom.jpg" Stretch="Fill" Height="770"/>

@@ -16,7 +16,8 @@ namespace MyFriendApp.ViewModel
     {
         private IHero hero;
         private int fatigue;
-
+        DelegateCommand feedCommand;
+        DelegateCommand putToSleepCommand;
         public int Fatigue
         {
             get { return fatigue; }
@@ -38,6 +39,9 @@ namespace MyFriendApp.ViewModel
             }
         }
 
+        internal DelegateCommand FeedCommand { get => feedCommand; set => feedCommand = value; }
+        internal DelegateCommand PutToSleepCommand { get => putToSleepCommand; set => putToSleepCommand = value; }
+
         public HeroViewModel()
         {
             // Start the Hero
@@ -45,6 +49,8 @@ namespace MyFriendApp.ViewModel
             Hungry = hero.Hunger;
             Fatigue = hero.Fatigue;
             hero.ValueChanged += ValueChanged;
+            feedCommand = new DelegateCommand(Feed);
+            putToSleepCommand = new DelegateCommand(Sleep);
 
         }
         private void ValueChanged(object sender, EventArgs ea)
@@ -57,14 +63,21 @@ namespace MyFriendApp.ViewModel
             if (vc.State is HungryState)
             {
                 Hungry = vc.Value;
+            }
+            if (vc.State is SleepyState)
+            {
                 Fatigue = vc.Value;
             }
+            if (vc.State is MoodState)
+            {
+                
+            }
         }
-        public void Feed()
+        public void Feed(object obj)
         {
             hero.Feed();
         }
-        public void Sleep()
+        public void Sleep(object obj)
         {
             hero.Sleep();
         }
