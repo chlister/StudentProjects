@@ -18,20 +18,11 @@ namespace MyFriendApp.Model.State
             Task task = new Task(delegate { Live(); });
             task.Start();
         }
-        public void Feed()
-        {
-            Debug.WriteLine("I am being fed");
-        }
+        public abstract void Feed();
 
-        public void Sleep()
-        {
-            Debug.WriteLine("I am sleeping");
-        }
+        public abstract void Sleep();
 
-        public void TalkTo()
-        {
-            Debug.WriteLine("I am being talked to");
-        }
+        public abstract void TalkTo();
         protected abstract void Live();
         public abstract override string ToString();
     }

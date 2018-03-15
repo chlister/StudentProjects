@@ -9,7 +9,6 @@ namespace MyFriendApp.Model.State
 {
     internal class MoodState : HeroState
     {
-        private int happiness = 100;
         public MoodState(IHero _heroState) : base(_heroState)
         {
 
@@ -19,7 +18,7 @@ namespace MyFriendApp.Model.State
         {
             while (true)
             {
-                if (happiness > 0)
+                if (Hero.Happiness > 0)
                 {
 
                     Debug.WriteLine("I am happy");
@@ -29,7 +28,7 @@ namespace MyFriendApp.Model.State
                 else
                 {
                     // I am sad?
-                    Debug.WriteLine("Make me heppy!");
+                    Debug.WriteLine("Make me happy!");
                     await Task.Delay(TimeSpan.FromSeconds(10));
                 }
             }
@@ -37,6 +36,21 @@ namespace MyFriendApp.Model.State
         public override string ToString()
         {
             return "happy state";
+        }
+
+        public override void Feed()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Sleep()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void TalkTo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

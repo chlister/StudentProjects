@@ -9,7 +9,6 @@ namespace MyFriendApp.Model.State
 {
     internal class SleepyState : HeroState
     {
-        private int sleepiness = 100;
         public SleepyState(IHero _heroState) : base(_heroState)
         {
 
@@ -21,7 +20,34 @@ namespace MyFriendApp.Model.State
             {
                 if (true)
                 {
-                    Debug.WriteLine("I am getting sleepy");
+                    if (!Hero.Sleeping)
+                    {
+                        Debug.WriteLine("I am getting sleepy");
+                        if (Hero.Fatigue > 0)
+                        {
+                            Hero.Fatigue--;
+                        }
+                        if (Hero.Fatigue == 0)
+                        {
+                            Debug.WriteLine("I Fell asleep");
+                            Hero.Sleeping = true;
+                            Hero.ChangeState(Hero.SleepyState);
+                        }
+
+                    }
+                    else
+                    {
+                        if (Hero.Fatigue < 100)
+                        {
+                            Debug.WriteLine("Going to sleep");
+                            Hero.Fatigue = Hero.Fatigue + 10;
+                        }
+                        else
+                        {
+                            Debug.WriteLine("I have woken");
+                            Hero.ChangeState(Hero.HungryState);
+                        }
+                    }
                     await Task.Delay(TimeSpan.FromSeconds(10));
                 }
             }
@@ -29,6 +55,21 @@ namespace MyFriendApp.Model.State
         public override string ToString()
         {
             return "sleepy state";
+        }
+
+        public override void Feed()
+        {
+            Debug.WriteLine("I am sleeping!");
+        }
+
+        public override void Sleep()
+        {
+            Debug.WriteLine("I am already asleep!");
+        }
+
+        public override void TalkTo()
+        {
+            Debug.WriteLine("Shhhh i am sleeping");
         }
     }
 }

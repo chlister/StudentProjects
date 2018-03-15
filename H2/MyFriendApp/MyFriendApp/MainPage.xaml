@@ -14,8 +14,8 @@
 
     <StackPanel Orientation="Horizontal" Background="IndianRed">
         <StackPanel Width="120">
-            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click"/>
-
+            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click_Food"/>
+            <Button Content="Go to sleep" HorizontalAlignment="Stretch" Margin="0,20,0,0" Click="Button_Click_Sleep"/>
         </StackPanel>
         <Canvas Height="770" Width="770">
             <Image Source="Assets/LivingRoom.jpg" Stretch="Fill" Height="770"/>
@@ -23,7 +23,9 @@
         </Canvas>
         <StackPanel Width="133">
             <TextBlock Text="HungryBar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
-                <ProgressBar Height="40" Value="{Binding Hungry}"  Margin="0,5,0,0"/>
+            <ProgressBar Height="40" Value="{Binding Hungry}"  Margin="0,5,0,0"/>
+            <TextBlock Text="Fatigue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            <ProgressBar Height="40" Value="{Binding Fatigue}"  Margin="0,5,0,0"/>
 
         </StackPanel>
     </StackPanel>

@@ -14,15 +14,27 @@ namespace MyFriendApp.ViewModel
 {
     class HeroViewModel : ViewModelBase
     {
-        private int hungry;
         private IHero hero;
+        private int fatigue;
+
+        public int Fatigue
+        {
+            get { return fatigue; }
+            set
+            {
+                fatigue = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int hungry;
         public int Hungry
         {
             get { return hungry; }
             set
             {
                 hungry = value;
-               OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -30,7 +42,8 @@ namespace MyFriendApp.ViewModel
         {
             // Start the Hero
             hero = new Hero();
-
+            Hungry = hero.Hunger;
+            Fatigue = hero.Fatigue;
             hero.ValueChanged += ValueChanged;
 
         }
@@ -44,12 +57,16 @@ namespace MyFriendApp.ViewModel
             if (vc.State is HungryState)
             {
                 Hungry = vc.Value;
+                Fatigue = vc.Value;
             }
         }
         public void Feed()
         {
             hero.Feed();
-            //Hungry += 10;
+        }
+        public void Sleep()
+        {
+            hero.Sleep();
         }
 
     }

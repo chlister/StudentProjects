@@ -105,7 +105,6 @@
     <Compile Include="Model\State\IState.cs" />
     <Compile Include="Model\State\MoodState.cs" />
     <Compile Include="Model\State\SleepyState.cs" />
-    <Compile Include="Model\State\SocialState.cs" />
     <Compile Include="Model\ValueEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBase.cs" />

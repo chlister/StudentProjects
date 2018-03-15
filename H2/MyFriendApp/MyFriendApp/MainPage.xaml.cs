@@ -31,10 +31,15 @@ namespace MyFriendApp
             this.DataContext = view;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Food(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Button pressed - feeding");
             view.Feed();
+        }
+        private void Button_Click_Sleep(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Button pressed - Sleeping");
+            view.Sleep();
         }
     }
 }
