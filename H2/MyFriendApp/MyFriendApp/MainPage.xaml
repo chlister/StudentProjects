@@ -8,18 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <HeroViewModel:HeroViewModel/>
-    </Page.DataContext>
 
     <StackPanel Orientation="Horizontal" Background="IndianRed">
         <StackPanel Width="120">
-            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Command="{Binding FeedCommand}"/>
+            <Button Content="Food" HorizontalAlignment="Stretch" Margin="0,20,0,0" Command="{Binding FeedCommand}" x:Name="prut"/>
             <Button Content="Go to sleep" HorizontalAlignment="Stretch" Margin="0,20,0,0" Command="{Binding PutToSleepCommand}"/>
         </StackPanel>
         <Canvas Height="770" Width="770">
             <Image Source="Assets/LivingRoom.jpg" Stretch="Fill" Height="770"/>
             <Image Height="198" Source="Assets/Batman.png" Canvas.Left="376" Canvas.Top="318" Width="204"/>
+            <TextBlock Canvas.Left="348" Canvas.Top="17" Text="{Binding State}" FontSize="24"/>
         </Canvas>
         <StackPanel Width="133">
             <TextBlock Text="HungryBar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>

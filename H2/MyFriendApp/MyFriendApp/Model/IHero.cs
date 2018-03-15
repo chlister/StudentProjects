@@ -13,13 +13,15 @@ namespace MyFriendApp.Model
         int Happiness { get; set; }
         int Fatigue { get; set; }
         int Hunger { get; set; }
-        IState CurrentState { get; set; }
-        IState MoodState { get; set; }
-        IState SleepyState { get; set; }
-        IState HungryState { get; set; }
+        IState CurrentState { get;  }
+        IState MoodState { get;  }
+        IState SleepyState { get; }
+        IState HungryState { get; }
         void ChangeState(IState state);
         // This event is called when a value is changed inside Hero
         event EventHandler ValueChanged;
+        event EventHandler StateChanged;
         void OnValueChanged(EventArgs ea);
+        void OnStateChanged();
     }
 }

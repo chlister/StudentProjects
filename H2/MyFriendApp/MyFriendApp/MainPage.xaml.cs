@@ -24,11 +24,9 @@ namespace MyFriendApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        HeroViewModel view = new HeroViewModel();
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = view;
         }
     }
 }

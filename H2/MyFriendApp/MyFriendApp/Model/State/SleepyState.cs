@@ -18,38 +18,39 @@ namespace MyFriendApp.Model.State
         {
             while (true)
             {
-                if (true)
+                Debug.WriteLine("step 1: Hero Fatigue = " + Hero.Fatigue + " Hero asleep? "+ Hero.Sleeping);
+                if (Hero.Sleeping == false)
                 {
-                    if (!Hero.Sleeping)
+                    Debug.WriteLine("I am getting sleepy");
+                    if (Hero.Fatigue > 0)
                     {
-                        Debug.WriteLine("I am getting sleepy");
-                        if (Hero.Fatigue > 0)
-                        {
-                            Hero.Fatigue--;
-                        }
-                        if (Hero.Fatigue == 0)
-                        {
-                            Debug.WriteLine("I Fell asleep");
-                            Hero.Sleeping = true;
-                            Hero.ChangeState(Hero.SleepyState);
-                        }
+                        Hero.Fatigue--;
+                    }
+                    if (Hero.Fatigue == 0)
+                    {
+                        Debug.WriteLine("I Fell asleep");
+                        Hero.Sleeping = true;
+                        Hero.ChangeState(Hero.SleepyState);
+                    }
 
+                }
+                else
+                {
+                    if (Hero.Fatigue < 100)
+                    {
+                        Debug.WriteLine("Going to sleep");
+                        Hero.Fatigue += 10;
                     }
                     else
                     {
-                        if (Hero.Fatigue < 100)
-                        {
-                            Debug.WriteLine("Going to sleep");
-                            Hero.Fatigue = Hero.Fatigue + 10;
-                        }
-                        else
-                        {
-                            Debug.WriteLine("I have woken");
-                            Hero.ChangeState(Hero.HungryState);
-                        }
+                        Debug.WriteLine("I have woken");
+                        Hero.Sleeping = false;
+                        Hero.ChangeState(Hero.HungryState);
                     }
-                    await Task.Delay(TimeSpan.FromSeconds(10));
                 }
+                Hero.OnValueChanged(new ValueEventArgs(this, Hero.Fatigue));
+                await Task.Delay(TimeSpan.FromSeconds(1));
+
             }
         }
         public override string ToString()

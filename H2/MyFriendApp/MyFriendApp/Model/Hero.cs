@@ -14,13 +14,15 @@ namespace MyFriendApp.Model
         private int happiness, fatigue, hunger = 100;
         private bool sleeping;
         public event EventHandler ValueChanged;
+        public event EventHandler StateChanged;
+
         public int Happiness { get => happiness; set => happiness = value; }
         public int Fatigue { get => fatigue; set => fatigue = value; }
         public int Hunger { get => hunger; set => hunger = value; }
-        public IState CurrentState { get => currentState; set => currentState = value; }
-        public IState HungryState { get => hungryState; set => hungryState = value; }
-        public IState SleepyState { get => sleepyState; set => sleepyState = value; }
-        public IState MoodState { get => moodState; set => moodState = value; }
+        public IState CurrentState { get => currentState; private set => currentState = value; }
+        public IState HungryState { get => hungryState; private set => hungryState = value; }
+        public IState SleepyState { get => sleepyState; private set => sleepyState = value; }
+        public IState MoodState { get => moodState; private set => moodState = value; }
         public bool Sleeping { get => sleeping; set => sleeping = value; }
 
         public Hero()
@@ -29,7 +31,7 @@ namespace MyFriendApp.Model
             hungryState = new HungryState(this);
             SleepyState = new SleepyState(this);
 
-            currentState = hungryState;
+            ChangeState(hungryState);
 
         }
 
@@ -37,13 +39,36 @@ namespace MyFriendApp.Model
         public void ChangeState(IState state)
         {
             CurrentState = state;
-
-            Debug.WriteLine("I am changing state");
+            OnStateChanged();
+            //Debug.WriteLine("I am changing state");
         }
 
         public void OnValueChanged(EventArgs ea)
         {
-            ValueChanged?.Invoke(this, ea);
+            ValueEventArgs vea = (ValueEventArgs)ea;
+            if (vea.State != null)
+            {
+                if (vea.State is HungryState)
+                {
+                    //Debug.WriteLine("Hunger value = " + vea.Value);
+                    Hunger = vea.Value;
+                    if (Hunger >= 100)
+                    {
+                        Hunger = 100;
+                    }
+                    ValueChanged?.Invoke(this, new ValueEventArgs(HungryState, Hunger));
+                }
+                if (vea.State is SleepyState)
+                {
+                    //Debug.WriteLine("Fatigue value = " + vea.Value);
+                    Fatigue = vea.Value;
+                    if (Fatigue >= 100)
+                    {
+                        Fatigue = 100;
+                    }
+                    ValueChanged?.Invoke(this, new ValueEventArgs(SleepyState, Fatigue));
+                }
+            }
         }
 
         public void Feed()
@@ -59,6 +84,11 @@ namespace MyFriendApp.Model
         public void TalkTo()
         {
             throw new NotImplementedException();
+        }
+
+        public void OnStateChanged()
+        {
+            StateChanged?.Invoke(this, new StateEventArgs(CurrentState.ToString()));
         }
     }
 }

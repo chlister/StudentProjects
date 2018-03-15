@@ -11,9 +11,10 @@ namespace MyFriendApp.Model.State
     {
         IHero hero;
         public IHero Hero { get => hero; set => hero = value; }
-        public HeroState(IHero _heroState)
+
+        public HeroState(IHero hero)
         {
-            hero = _heroState;
+            this.hero = hero;
             //create the simple life of a hero
             Task task = new Task(delegate { Live(); });
             task.Start();

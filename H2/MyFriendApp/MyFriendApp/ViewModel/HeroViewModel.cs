@@ -16,6 +16,8 @@ namespace MyFriendApp.ViewModel
     {
         private IHero hero;
         private int fatigue;
+        private string state;
+        private int hungry;
         DelegateCommand feedCommand;
         DelegateCommand putToSleepCommand;
         public int Fatigue
@@ -28,7 +30,6 @@ namespace MyFriendApp.ViewModel
             }
         }
 
-        private int hungry;
         public int Hungry
         {
             get { return hungry; }
@@ -39,8 +40,18 @@ namespace MyFriendApp.ViewModel
             }
         }
 
-        internal DelegateCommand FeedCommand { get => feedCommand; set => feedCommand = value; }
-        internal DelegateCommand PutToSleepCommand { get => putToSleepCommand; set => putToSleepCommand = value; }
+        public DelegateCommand FeedCommand { get => feedCommand; set => feedCommand = value; }
+        public DelegateCommand PutToSleepCommand { get => putToSleepCommand; set => putToSleepCommand = value; }
+        public string State
+        {
+            get => state;
+            set
+            {
+                state = value;
+                OnPropertyChanged();
+            }
+
+        }
 
         public HeroViewModel()
         {
@@ -49,16 +60,24 @@ namespace MyFriendApp.ViewModel
             Hungry = hero.Hunger;
             Fatigue = hero.Fatigue;
             hero.ValueChanged += ValueChanged;
-            feedCommand = new DelegateCommand(Feed);
-            putToSleepCommand = new DelegateCommand(Sleep);
+            hero.StateChanged += StateChanged;
+            FeedCommand = new DelegateCommand(Feed);
+            PutToSleepCommand = new DelegateCommand(Sleep);
 
         }
+
+        private void StateChanged(object sender, EventArgs e)
+        {
+            StateEventArgs sea = (StateEventArgs)e;
+            State = sea.State;
+        }
+
         private void ValueChanged(object sender, EventArgs ea)
         {
             ValueEventArgs vc = (ValueEventArgs)ea;
             if (vc.State != null)
             {
-                Debug.WriteLine("Value Changed + " + vc.State.ToString());
+                //Debug.WriteLine("Value Changed in " + vc.State.ToString());
             }
             if (vc.State is HungryState)
             {
@@ -70,7 +89,7 @@ namespace MyFriendApp.ViewModel
             }
             if (vc.State is MoodState)
             {
-                
+
             }
         }
         public void Feed(object obj)

@@ -11,7 +11,6 @@ namespace MyFriendApp.Model.State
     {
         public MoodState(IHero _heroState) : base(_heroState)
         {
-
         }
 
         protected override async void Live()

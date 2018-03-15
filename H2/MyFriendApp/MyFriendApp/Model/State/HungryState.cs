@@ -22,10 +22,12 @@ namespace MyFriendApp.Model.State
         {
             while (true)
             {
+                Debug.WriteLine("step 1: Hero Hunger = " + Hero.Hunger);
                 if (Hero.Hunger > 0)
                 {
-                    Hero.Hunger = Hero.Hunger - 2;
-                    
+                    Hero.Hunger -= 2;
+
+                    Debug.WriteLine("step 2: Hero Hunger = " + Hero.Hunger);
                     Hero.OnValueChanged(new ValueEventArgs(this, Hero.Hunger));
 
                 }
