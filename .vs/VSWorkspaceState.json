@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\H2",
-    "\\H2\\ThreadingTest\\ThreadingTest\\Properties",
-    "\\H2\\ThreadSyncAssign",
-    "\\H2\\ThreadSyncAssign\\ThreadSyncAssign",
-    "\\H2\\ThreadSyncAssign\\ThreadSyncAssign\\Properties",
-    "\\H2\\Thread_Testing",
-    "\\H2\\Thread_Testing\\Thread_Testing"
+    "\\H2\\Thread_Testing\\Thread_Testing",
+    "\\Intrest_Projects",
+    "\\Intrest_Projects\\VignereCipher",
+    "\\StatePattern"
   ],
-  "SelectedNode": "\\H2\\Thread_Testing\\Thread_Testing\\PingPong.cs",
+  "SelectedNode": "\\StatePattern\\StatePattern.sln",
   "PreviewInSolutionExplorer": false
 }
