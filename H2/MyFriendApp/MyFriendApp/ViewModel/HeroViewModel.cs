@@ -14,7 +14,21 @@ namespace MyFriendApp.ViewModel
 {
     class HeroViewModel : ViewModelBase
     {
+        private IHero hero;
+        private int fatigue;
+        private string state;
         private int hungry;
+        DelegateCommand feedCommand;
+        DelegateCommand putToSleepCommand;
+        public int Fatigue
+        {
+            get { return fatigue; }
+            set
+            {
+                fatigue = value;
+                OnPropertyChanged();
+            }
+        }
 
         public int Hungry
         {
@@ -22,33 +36,69 @@ namespace MyFriendApp.ViewModel
             set
             {
                 hungry = value;
-               OnPropertyChanged();
+                OnPropertyChanged();
             }
+        }
+
+        public DelegateCommand FeedCommand { get => feedCommand; set => feedCommand = value; }
+        public DelegateCommand PutToSleepCommand { get => putToSleepCommand; set => putToSleepCommand = value; }
+        public string State
+        {
+            get => state;
+            set
+            {
+                state = value;
+                OnPropertyChanged();
+            }
+
         }
 
         public HeroViewModel()
         {
             // Start the Hero
-            IHero hero = new Hero();
-
+            hero = new Hero();
+            Hungry = hero.Hunger;
+            Fatigue = hero.Fatigue;
             hero.ValueChanged += ValueChanged;
+            hero.StateChanged += StateChanged;
+            FeedCommand = new DelegateCommand(Feed);
+            PutToSleepCommand = new DelegateCommand(Sleep);
 
         }
+
+        private void StateChanged(object sender, EventArgs e)
+        {
+            StateEventArgs sea = (StateEventArgs)e;
+            State = sea.State;
+        }
+
         private void ValueChanged(object sender, EventArgs ea)
         {
             ValueEventArgs vc = (ValueEventArgs)ea;
             if (vc.State != null)
             {
-                Debug.WriteLine("Value Changed + " + vc.State.ToString());
+                //Debug.WriteLine("Value Changed in " + vc.State.ToString());
             }
             if (vc.State is HungryState)
             {
                 Hungry = vc.Value;
             }
+            if (vc.State is SleepyState)
+            {
+                Fatigue = vc.Value;
+            }
+            if (vc.State is MoodState)
+            {
+
+            }
         }
-        public void Feed()
+        public void Feed(object obj)
         {
-            hungry += 10;
+            hero.Feed();
+        }
+        public void Sleep(object obj)
+        {
+            hero.Sleep();
         }
 
     }
