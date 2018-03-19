@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\EventsDelegates",
     "\\H2",
-    "\\H2\\Thread_Testing\\Thread_Testing",
-    "\\Intrest_Projects",
-    "\\Intrest_Projects\\VignereCipher",
-    "\\StatePattern"
+    "\\H2\\MyFriendApp"
   ],
-  "SelectedNode": "\\StatePattern\\StatePattern.sln",
+  "SelectedNode": "\\H2\\MyFriendApp\\MyFriendApp.sln",
   "PreviewInSolutionExplorer": false
 }
