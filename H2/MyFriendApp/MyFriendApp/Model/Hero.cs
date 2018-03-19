@@ -56,7 +56,7 @@ namespace MyFriendApp.Model
                     {
                         Hunger = 100;
                     }
-                    ValueChanged?.Invoke(this, new ValueEventArgs(HungryState, Hunger));
+                    ValueChanged?.Invoke(this, vea);
                 }
                 if (vea.State is SleepyState)
                 {

@@ -1,0 +1,9 @@
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.csprojResolveAssemblyReference.cache
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.ProjectInstaller.resources
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.csproj.GenerateResource.cache
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.csproj.CoreCompileInputs.cache
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\bin\Debug\TestWindowsService.exe.config
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\bin\Debug\TestWindowsService.exe
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\bin\Debug\TestWindowsService.pdb
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.exe
+C:\Users\ZBC\Source\Repos\StudentProjects\TestWindowsService\TestWindowsService\obj\Debug\TestWindowsService.pdb
