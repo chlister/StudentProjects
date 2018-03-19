@@ -10,6 +10,7 @@ namespace EventsDelegates
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
