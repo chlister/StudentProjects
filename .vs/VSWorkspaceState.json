@@ -3,8 +3,10 @@
     "",
     "\\EventsDelegates",
     "\\H2",
-    "\\H2\\MyFriendApp"
+    "\\H2\\Thread_Testing\\Thread_Testing",
+    "\\Intrest_Projects",
+    "\\Intrest_Projects\\VignereCipher"
   ],
-  "SelectedNode": "\\H2\\MyFriendApp\\MyFriendApp.sln",
+  "SelectedNode": "\\EventsDelegates\\EventsDelegates.sln",
   "PreviewInSolutionExplorer": false
 }
