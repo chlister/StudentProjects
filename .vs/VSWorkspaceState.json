@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\DolphinProj",
     "\\EventsDelegates",
     "\\H2",
-    "\\H2\\Thread_Testing\\Thread_Testing",
     "\\Intrest_Projects",
     "\\Intrest_Projects\\VignereCipher"
   ],
-  "SelectedNode": "\\EventsDelegates\\EventsDelegates.sln",
+  "SelectedNode": "\\Intrest_Projects\\VignereCipher\\VignereCipher.sln",
   "PreviewInSolutionExplorer": false
 }
