@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\H2",
-    "\\Intrest_Projects"
+    "\\Intrest_Projects",
+    "\\Intrest_Projects\\TrainTaskTest",
+    "\\Intrest_Projects\\VignereCipher"
   ],
-  "SelectedNode": "\\Intrest_Projects\\EventsDelegates",
+  "SelectedNode": "\\Intrest_Projects\\TrainTaskTest\\TrainTaskTest.sln",
   "PreviewInSolutionExplorer": false
 }

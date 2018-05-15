@@ -11,13 +11,16 @@ namespace TrainTaskTest
     {
         static void Main(string[] args)
         {
-            Train t = new Train();
-            Train t2 = new Train(200, 1.3f, "Express Train");
-            Train t3 = new Train(150, 1.2f, "Cargo Train");
 
-            t.StartEngine();
-            t2.StartEngine();
-            t3.StartEngine();
+
+
+            //Train t = new Train();
+            //Train t2 = new Train(200, 1.3f, "Express Train");
+            //Train t3 = new Train(150, 1.2f, "Cargo Train");
+
+            //t.StartEngine();
+            //t2.StartEngine();
+            //t3.StartEngine();
             Console.ReadLine();
         }
     }
@@ -107,7 +110,7 @@ namespace TrainTaskTest
 
                 else
                     CurSpeed = CurSpeed * Acceleration;
-                
+
             }
         }
 
