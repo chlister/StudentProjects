@@ -1,7 +1,0 @@
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\obj\Debug\BSSystem.csprojResolveAssemblyReference.cache
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\obj\Debug\BSSystem.csproj.CoreCompileInputs.cache
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\bin\Debug\BSSystem.exe.config
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\bin\Debug\BSSystem.exe
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\bin\Debug\BSSystem.pdb
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\obj\Debug\BSSystem.exe
-C:\Users\ZBC\Source\Repos\StudentProjects\BSSystem\BSSystem\obj\Debug\BSSystem.pdb

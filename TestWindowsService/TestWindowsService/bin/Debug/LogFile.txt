@@ -1,9 +1,0 @@
-16/03/2018 11.03.26: Test window service started
-16/03/2018 11.03.56: Timer ticked and some job has been done successfully
-16/03/2018 11.04.26: Timer ticked and some job has been done successfully
-16/03/2018 11.04.56: Timer ticked and some job has been done successfully
-16/03/2018 11.05.26: Timer ticked and some job has been done successfully
-16/03/2018 11.05.56: Timer ticked and some job has been done successfully
-16/03/2018 11.06.26: Timer ticked and some job has been done successfully
-16/03/2018 11.06.56: Timer ticked and some job has been done successfully
-16/03/2018 11.07.24: Test window service stopped
