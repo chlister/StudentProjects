@@ -1,6 +1,0 @@
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\bin\Debug\TrainTaskTest.exe.config
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\bin\Debug\TrainTaskTest.exe
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\bin\Debug\TrainTaskTest.pdb
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\obj\Debug\TrainTaskTest.csproj.CoreCompileInputs.cache
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\obj\Debug\TrainTaskTest.exe
-C:\Users\mr-jm\source\repos\TrainTaskTest\TrainTaskTest\obj\Debug\TrainTaskTest.pdb
