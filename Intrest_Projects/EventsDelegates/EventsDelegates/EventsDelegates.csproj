@@ -42,14 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IObservable.cs" />
-    <Compile Include="IObserver.cs" />
-    <Compile Include="Model\Hero.cs" />
-    <Compile Include="Model\IHero.cs" />
+    <Compile Include="Model\MailService.cs" />
+    <Compile Include="Model\MessageService.cs" />
+    <Compile Include="Model\Video.cs" />
+    <Compile Include="Model\VideoEncoder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View.cs" />
-    <Compile Include="ViewTUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
