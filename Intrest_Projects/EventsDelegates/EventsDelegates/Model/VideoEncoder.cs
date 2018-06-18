@@ -19,10 +19,17 @@ namespace EventsDelegates.Model
         // 2 - Define an event based on that delegate
         // 3 - Raise the event
 
-            // This holds a reference to a method that looks exactly like this
-        public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
+        // This type of eventhandler is .NET specific
+        // EventHandler - For sending no arguments with the event
+        // EventHandler<TEventArgs> - for sending additional data with the event
 
-        public event VideoEncodedEventHandler VideoEncoded;
+        public event EventHandler VideoEncoding;
+        public event EventHandler<VideoEventArgs> VideoEncoded; // Sending VideoEventArgs with the event
+
+        // This holds a reference to a method that looks exactly like this
+        //public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);
+
+        //public event VideoEncodedEventHandler VideoEncoded;
 
         public VideoEncoder()
         {
@@ -33,7 +40,7 @@ namespace EventsDelegates.Model
         {
             Console.WriteLine("Encoding video");
             Thread.Sleep(3000);
-            
+
             // Here we raise the event in the method
             OnVideoEncoded(video);
         }
@@ -46,14 +53,14 @@ namespace EventsDelegates.Model
         protected virtual void OnVideoEncoded(Video video)
         {
             // This way is just fine but it can be shortened by using the nullable char (?)
-           /*  
-              if (VideoEncoded != null)
-                {
-                    VideoEncoded.Invoke(this, EventArgs.Empty);
-                }
-            */
+            /*  
+               if (VideoEncoded != null)
+                 {
+                     VideoEncoded.Invoke(this, EventArgs.Empty);
+                 }
+             */
             // Here we used the nullable keyword (?)
-            VideoEncoded?.Invoke(this, new VideoEventArgs() { Video = video});
+            VideoEncoded?.Invoke(this, new VideoEventArgs() { Video = video });
         }
     }
 }

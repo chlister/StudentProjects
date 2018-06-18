@@ -9,8 +9,7 @@ namespace EventsDelegates.Model
     public class MailService
     {
         // 1 - Define a eventhandler - that corrosponds to the delegate in VideoEncoder
-
-
+        
 
         public void OnVideoEncoded(object source, VideoEventArgs args)
         {
