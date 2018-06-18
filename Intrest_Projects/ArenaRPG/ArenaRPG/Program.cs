@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using ArenaRPG.Annotations;
+﻿using ArenaRPG.Model;
+using ArenaRPG.Model.MechModel;
+using ArenaRPG.Utils;
+using ArenaRPG.View;
+using System;
 
 namespace ArenaRPG
 {
@@ -14,9 +10,14 @@ namespace ArenaRPG
     {
         static void Main(string[] args)
         {
-            IMech mech = new Mech(new Chest(150, "Basic Chest Piece"), new Head(50, "Basic Head Piece"));
+            IMech mech = MechFactory.CreateMech();
+
+            mech.ArmLeft = (IArm)MechFactory.CreateMechPart(PartEnum.Arm);
 
             mech.TargetMechPart(mech.Chest);
+
+            MechView view = new MechView(mech);
+            view.ShowMechParts();
 
             Console.WriteLine("Hello");
             Console.ReadLine();
