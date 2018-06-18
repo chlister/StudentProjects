@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chest.cs" />
+    <Compile Include="Head.cs" />
+    <Compile Include="IChest.cs" />
+    <Compile Include="IHead.cs" />
+    <Compile Include="IMech.cs" />
+    <Compile Include="IMechPart.cs" />
+    <Compile Include="Mech.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
