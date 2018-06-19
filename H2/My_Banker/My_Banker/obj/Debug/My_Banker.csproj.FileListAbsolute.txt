@@ -1,7 +1,0 @@
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\obj\Debug\My_Banker.csprojResolveAssemblyReference.cache
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\obj\Debug\My_Banker.csproj.CoreCompileInputs.cache
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\bin\Debug\My_Banker.exe.config
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\bin\Debug\My_Banker.exe
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\bin\Debug\My_Banker.pdb
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\obj\Debug\My_Banker.exe
-C:\Users\mr-jm\Source\Repos\H2_Assignments\My_Banker\My_Banker\obj\Debug\My_Banker.pdb

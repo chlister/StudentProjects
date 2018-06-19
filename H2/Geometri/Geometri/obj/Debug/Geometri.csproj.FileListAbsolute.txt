@@ -1,7 +1,0 @@
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\bin\Debug\Geometri.exe.config
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\bin\Debug\Geometri.exe
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\bin\Debug\Geometri.pdb
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\obj\Debug\Geometri.csprojResolveAssemblyReference.cache
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\obj\Debug\Geometri.csproj.CoreCompileInputs.cache
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\obj\Debug\Geometri.exe
-C:\Users\mr-jm\Source\Repos\H2_Assignments\Geometri\Geometri\obj\Debug\Geometri.pdb

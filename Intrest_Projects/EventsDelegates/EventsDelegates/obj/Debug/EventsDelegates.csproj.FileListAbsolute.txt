@@ -1,7 +1,0 @@
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\bin\Debug\EventsDelegates.exe.config
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\bin\Debug\EventsDelegates.exe
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\bin\Debug\EventsDelegates.pdb
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\obj\Debug\EventsDelegates.csprojAssemblyReference.cache
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\obj\Debug\EventsDelegates.csproj.CoreCompileInputs.cache
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\obj\Debug\EventsDelegates.exe
-C:\Users\mr-jm\source\repos\StudentProjects\Intrest_Projects\EventsDelegates\EventsDelegates\obj\Debug\EventsDelegates.pdb
