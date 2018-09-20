@@ -25,6 +25,7 @@ namespace My_Banker
 			{
 				Console.WriteLine(item.ToString());
 			}
+            cards[0].Deposit(500);
 
 			Console.ReadLine();
 		}

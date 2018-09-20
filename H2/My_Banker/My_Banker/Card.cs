@@ -37,7 +37,7 @@ namespace My_Banker
 		/// Method for depositing a certain amount to the card
 		/// </summary>
 		/// <param name="Amount">Amount to be deposited</param>
-		protected void Deposit(int Amount)
+		public void Deposit(int Amount)
 		{
 			Balance += Amount;
 		}
