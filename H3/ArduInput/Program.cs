@@ -16,7 +16,7 @@ namespace ArduinoOutput
 
         }
 
-        private static void Js_ButtonPressed(object sender, ButtonEventArgs e)
+        private static void Js_ButtonPressed(object sender, ButtonEventArgs<Button> e)
         {
             Console.WriteLine(e.Button);
         }

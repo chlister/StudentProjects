@@ -14,7 +14,7 @@ namespace ArduinoOutput
         public string PortName { get { return _serialPort.PortName; } set { _serialPort.PortName = value; } }
 
         public event EventHandler<DirectionEventArgs> DirectionChanged;
-        public event EventHandler<ButtonEventArgs> ButtonPressed;
+        public event EventHandler<ButtonEventArgs<Button>> ButtonPressed;
 
         public JoystickOutput()
         {
@@ -84,7 +84,7 @@ namespace ArduinoOutput
         }
         protected virtual void OnButtonPressed(Button butt)
         {
-            ButtonEventArgs bea = new ButtonEventArgs(butt);
+            ButtonEventArgs<Button> bea = new ButtonEventArgs<Button>(butt);
             ButtonPressed?.Invoke(this, bea);
         }
     }

@@ -2,12 +2,12 @@
 
 namespace ArduinoOutput
 {
-    public class ButtonEventArgs : EventArgs
+    public class ButtonEventArgs<T> : EventArgs
     {
-        public Button Button { get; }
-        public ButtonEventArgs(Button butt)
+        public T Button { get; }
+        public ButtonEventArgs(T button)
         {
-            Button = butt;
+            Button = button;
         }
     }
 }
