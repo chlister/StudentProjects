@@ -77,7 +77,23 @@ namespace CustomControlInput
 
         private void GetAssemblerInput(string serialInput)
         {
-            throw new NotImplementedException();
+            switch (serialInput)
+            {
+                case "CU":
+                    OnDirectionChanged(Directions.Up);
+                    break;
+                case "CD":
+                    OnDirectionChanged(Directions.Down);
+                    break;
+                case "CR":
+                    OnDirectionChanged(Directions.Right);
+                    break;
+                case "CL":
+                    OnDirectionChanged(Directions.Left);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void GetCuttingInput(string serialInput)
