@@ -9,6 +9,7 @@ namespace CustomControlInput
 {
     public class ConnectSerial
     {
+        // needed for opening the COM-port
         private readonly SerialPort _serialPort;
         public int BaudRate
         {
@@ -24,6 +25,8 @@ namespace CustomControlInput
         {
             get { return _serialPort.IsOpen; }
         }
+
+        // delegate Eventhandlers 
         public event EventHandler<FryState> FryStateChanged;
         public event EventHandler<PotState> PotStateChanged;
         public event EventHandler<DirectionEventArgs> DirectionChanged;
@@ -38,6 +41,9 @@ namespace CustomControlInput
             BaudRate = baudRate;
         }
 
+        /// <summary>
+        /// Reads the input from the port
+        /// </summary>
         private void ReadInput()
         {
             string serialInput;
@@ -65,37 +71,59 @@ namespace CustomControlInput
             }
         }
 
+        /// <summary>
+        /// Handles the input concerning the Pan
+        /// </summary>
+        /// <param name="serialInput"></param>
         private void GetPanInput(string serialInput)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Handles the input concerning the Fryingpan
+        /// </summary>
+        /// <param name="serialInput"></param>
         private void GetFryInput(string serialInput)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Handles the input concerning the assembler
+        /// </summary>
+        /// <param name="serialInput"></param>
         private void GetAssemblerInput(string serialInput)
         {
             switch (serialInput)
             {
-                case "CU":
+                case "JU":
                     OnDirectionChanged(Directions.Up);
                     break;
-                case "CD":
+                case "JD":
                     OnDirectionChanged(Directions.Down);
                     break;
-                case "CR":
+                case "JR":
                     OnDirectionChanged(Directions.Right);
                     break;
-                case "CL":
+                case "JL":
                     OnDirectionChanged(Directions.Left);
+                    break;
+                case "J0":
+                    OnAssemblerButtonPressed(AssemblerButtons.B0);
+                    break;
+                case "J1":
+                    OnAssemblerButtonPressed(AssemblerButtons.B1);
                     break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// Handles the input concerning the cuttingboard
+        /// </summary>
+        /// <param name="serialInput"></param>
         private void GetCuttingInput(string serialInput)
         {
             throw new NotImplementedException();
@@ -146,6 +174,11 @@ namespace CustomControlInput
         {
             ButtonEventArgs<FryButtons> fea = new ButtonEventArgs<FryButtons>(buttons);
             FryButtonPressed?.Invoke(this, fea);
+        }
+        protected virtual void OnAssemblerButtonPressed(AssemblerButtons buttons)
+        {
+            ButtonEventArgs<AssemblerButtons> aea = new ButtonEventArgs<AssemblerButtons>(buttons);
+            AssemblerButtonPressed?.Invoke(this, aea);
         }
         protected virtual void OnPotButtonPressed(PotButtons button)
         {
