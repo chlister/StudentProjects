@@ -121,6 +121,20 @@ namespace CustomControlInput
             }
         }
 
-
+        protected virtual void OnDirectionChanged(Directions dir)
+        {
+            DirectionEventArgs dea = new DirectionEventArgs(dir);
+            DirectionChanged?.Invoke(this, dea);
+        }
+        protected virtual void OnFryButtonPressed(FryButtons buttons)
+        {
+            ButtonEventArgs<FryButtons> fea = new ButtonEventArgs<FryButtons>(buttons);
+            FryButtonPressed?.Invoke(this, fea);
+        }
+        protected virtual void OnPotButtonPressed(PotButtons button)
+        {
+            ButtonEventArgs<PotButtons> pea = new ButtonEventArgs<PotButtons>(button);
+            PotButtonPressed?.Invoke(this, pea);
+        }
     }
 }
