@@ -24,7 +24,13 @@ namespace CustomControlInput
         {
             get { return _serialPort.IsOpen; }
         }
-        public Task TaskReader { get; set; }
+        public event EventHandler<FryState> FryStateChanged;
+        public event EventHandler<PotState> PotStateChanged;
+        public event EventHandler<DirectionEventArgs> DirectionChanged;
+        public event EventHandler<ButtonEventArgs<CuttingButtons>> CuttingButtonPressed;
+        public event EventHandler<ButtonEventArgs<FryButtons>> FryButtonPressed;
+        public event EventHandler<ButtonEventArgs<AssemblerButtons>> AssemblerButtonPressed;
+        public event EventHandler<ButtonEventArgs<PotButtons>> PotButtonPressed;
 
         public ConnectSerial(string portName, int baudRate)
         {
