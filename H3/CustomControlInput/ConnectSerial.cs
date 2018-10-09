@@ -27,13 +27,15 @@ namespace CustomControlInput
         }
 
         // delegate Eventhandlers 
-        public event EventHandler<FryState> FryStateChanged;
-        public event EventHandler<PotState> PotStateChanged;
+        public event EventHandler<FryEventArgs> FryStateChanged;
+        public event EventHandler<PotEventArgs> PotStateChanged;
+        public event EventHandler<CuttingEventArgs> CuttingAction;
         public event EventHandler<DirectionEventArgs> DirectionChanged;
         public event EventHandler<ButtonEventArgs<CuttingButtons>> CuttingButtonPressed;
         public event EventHandler<ButtonEventArgs<FryButtons>> FryButtonPressed;
         public event EventHandler<ButtonEventArgs<AssemblerButtons>> AssemblerButtonPressed;
         public event EventHandler<ButtonEventArgs<PotButtons>> PotButtonPressed;
+
 
         public ConnectSerial(string portName, int baudRate)
         {
@@ -64,7 +66,7 @@ namespace CustomControlInput
                 }
                 if (serialInput.Contains("P:"))
                 {
-                    Task.Run(() => GetPanInput(serialInput));
+                    Task.Run(() => GetPotInput(serialInput));
                 }
 
                 //Thread.Sleep(100);
@@ -72,12 +74,28 @@ namespace CustomControlInput
         }
 
         /// <summary>
-        /// Handles the input concerning the Pan
+        /// Handles the input concerning the Pot
         /// </summary>
         /// <param name="serialInput"></param>
-        private void GetPanInput(string serialInput)
+        private void GetPotInput(string serialInput)
         {
-            throw new NotImplementedException();
+            switch (serialInput)
+            {
+                case "P0":
+                    OnPotButtonPressed(PotButtons.B0);
+                    break;
+                case "P1":
+                    OnPotButtonPressed(PotButtons.B1);
+                    break;
+                case "PT":
+                    OnPotStateChanged(PotState.LidOn);
+                    break;
+                case "PF":
+                    OnPotStateChanged(PotState.LidOff);
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -86,7 +104,21 @@ namespace CustomControlInput
         /// <param name="serialInput"></param>
         private void GetFryInput(string serialInput)
         {
-            throw new NotImplementedException();
+            switch (serialInput)
+            {
+                case "F0":
+                    OnFryButtonPressed(FryButtons.B0);
+                    break;
+                case "F1":
+                    OnFryButtonPressed(FryButtons.B1);
+                    break;
+                case "F2":
+                    OnFryButtonPressed(FryButtons.B2);
+                    break;
+                // TODO: Missing function
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -126,7 +158,26 @@ namespace CustomControlInput
         /// <param name="serialInput"></param>
         private void GetCuttingInput(string serialInput)
         {
-            throw new NotImplementedException();
+            switch (serialInput)
+            {
+                case "C0":
+                    OnCuttingButtonPressed(CuttingButtons.B0);
+                    break;
+                case "C1":
+                    OnCuttingButtonPressed(CuttingButtons.B1);
+                    break;
+                case "C2":
+                    OnCuttingButtonPressed(CuttingButtons.B2);
+                    break;
+                case "C3":
+                    OnCuttingButtonPressed(CuttingButtons.B3);
+                    break;
+                case "CS":
+                    OnCuttingAction(CuttingActions.Cutting);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void OpenConnection()
@@ -164,6 +215,26 @@ namespace CustomControlInput
                 Debug.WriteLine("Connection couldn't be opened");
             }
         }
+        #region Event raisers
+
+
+        protected virtual void OnCuttingAction(CuttingActions cutting)
+        {
+            CuttingEventArgs cea = new CuttingEventArgs(cutting);
+            CuttingAction?.Invoke(this, cea);
+        }
+
+        protected virtual void OnCuttingButtonPressed(CuttingButtons button)
+        {
+            ButtonEventArgs<CuttingButtons> bea = new ButtonEventArgs<CuttingButtons>(button);
+            CuttingButtonPressed?.Invoke(this, bea);
+        }
+
+        protected virtual void OnPotStateChanged(PotState state)
+        {
+            PotEventArgs pea = new PotEventArgs(state);
+            PotStateChanged?.Invoke(this, pea);
+        }
 
         protected virtual void OnDirectionChanged(Directions dir)
         {
@@ -172,18 +243,19 @@ namespace CustomControlInput
         }
         protected virtual void OnFryButtonPressed(FryButtons buttons)
         {
-            ButtonEventArgs<FryButtons> fea = new ButtonEventArgs<FryButtons>(buttons);
-            FryButtonPressed?.Invoke(this, fea);
+            ButtonEventArgs<FryButtons> bea = new ButtonEventArgs<FryButtons>(buttons);
+            FryButtonPressed?.Invoke(this, bea);
         }
         protected virtual void OnAssemblerButtonPressed(AssemblerButtons buttons)
         {
-            ButtonEventArgs<AssemblerButtons> aea = new ButtonEventArgs<AssemblerButtons>(buttons);
-            AssemblerButtonPressed?.Invoke(this, aea);
+            ButtonEventArgs<AssemblerButtons> bea = new ButtonEventArgs<AssemblerButtons>(buttons);
+            AssemblerButtonPressed?.Invoke(this, bea);
         }
         protected virtual void OnPotButtonPressed(PotButtons button)
         {
-            ButtonEventArgs<PotButtons> pea = new ButtonEventArgs<PotButtons>(button);
-            PotButtonPressed?.Invoke(this, pea);
+            ButtonEventArgs<PotButtons> bea = new ButtonEventArgs<PotButtons>(button);
+            PotButtonPressed?.Invoke(this, bea);
         }
+        #endregion
     }
 }
