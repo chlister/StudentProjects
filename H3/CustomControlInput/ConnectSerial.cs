@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using CustomControl.Input;
 using CustomControl.Event;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace CustomControl
 {
@@ -44,11 +46,9 @@ namespace CustomControl
 
         #endregion
 
-        public ConnectSerial(string portName, int baudRate)
+        public ConnectSerial()
         {
             _serialPort = new SerialPort();
-            PortName = portName;
-            BaudRate = baudRate;
         }
 
         /// <summary>
@@ -60,24 +60,25 @@ namespace CustomControl
             while (true)
             {
                 serialInput = _serialPort.ReadExisting();
-                if (serialInput.Contains("C:"))
+                if (serialInput.Contains("C"))
                 {
+                    //GetCuttingInput(serialInput);
                     Task.Run(() => GetCuttingInput(serialInput));
                 }
                 if (serialInput.Contains("J"))
                 {
                     Task.Run(() => GetAssemblerInput(serialInput));
                 }
-                if (serialInput.Contains("F:"))
+                if (serialInput.Contains("F"))
                 {
                     Task.Run(() => GetFryInput(serialInput));
                 }
-                if (serialInput.Contains("P:"))
+                if (serialInput.Contains("P"))
                 {
                     Task.Run(() => GetPotInput(serialInput));
                 }
 
-                //Thread.Sleep(100);
+                Thread.Sleep(30);
             }
         }
 
@@ -87,22 +88,36 @@ namespace CustomControl
         /// <param name="serialInput"></param>
         private void GetPotInput(string serialInput)
         {
-            switch (serialInput)
+            List<string> inputs = new List<string>();
+            for (int i = 0; i <= serialInput.Length; i++)
             {
-                case "P0":
-                    OnPotButtonPressed(PotButtons.B0);
-                    break;
-                case "P1":
-                    OnPotButtonPressed(PotButtons.B1);
-                    break;
-                case "PT":
-                    OnPotStateChanged(PotState.LidOn);
-                    break;
-                case "PF":
-                    OnPotStateChanged(PotState.LidOff);
-                    break;
-                default:
-                    break;
+                if (i != 0)
+                {
+                    if (i % 2 == 0)
+                    {
+                        inputs.Add("" + serialInput[i - 2] + serialInput[i - 1]);
+                    }
+                }
+            }
+            foreach (var item in inputs)
+            {
+                switch (item)
+                {
+                    case "P0":
+                        OnPotButtonPressed(PotButtons.B0);
+                        break;
+                    case "P1":
+                        OnPotButtonPressed(PotButtons.B1);
+                        break;
+                    case "PT":
+                        OnPotStateChanged(PotState.LidOn);
+                        break;
+                    case "PF":
+                        OnPotStateChanged(PotState.LidOff);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -112,20 +127,34 @@ namespace CustomControl
         /// <param name="serialInput"></param>
         private void GetFryInput(string serialInput)
         {
-            switch (serialInput)
+            List<string> inputs = new List<string>();
+            for (int i = 0; i <= serialInput.Length; i++)
             {
-                case "F0":
-                    OnFryButtonPressed(FryButtons.B0);
-                    break;
-                case "F1":
-                    OnFryButtonPressed(FryButtons.B1);
-                    break;
-                case "F2":
-                    OnFryButtonPressed(FryButtons.B2);
-                    break;
-                // TODO: Missing function
-                default:
-                    break;
+                if (i != 0)
+                {
+                    if (i % 2 == 0)
+                    {
+                        inputs.Add("" + serialInput[i - 2] + serialInput[i - 1]);
+                    }
+                }
+            }
+            foreach (var item in inputs)
+            {
+                switch (item)
+                {
+                    case "F0":
+                        OnFryButtonPressed(FryButtons.B0);
+                        break;
+                    case "F1":
+                        OnFryButtonPressed(FryButtons.B1);
+                        break;
+                    case "F2":
+                        OnFryButtonPressed(FryButtons.B2);
+                        break;
+                    // TODO: Missing function
+                    default:
+                        break;
+                }
             }
         }
 
@@ -135,28 +164,42 @@ namespace CustomControl
         /// <param name="serialInput"></param>
         private void GetAssemblerInput(string serialInput)
         {
-            switch (serialInput)
+            List<string> inputs = new List<string>();
+            for (int i = 0; i <= serialInput.Length; i++)
             {
-                case "JU":
-                    OnDirectionChanged(Directions.Up);
-                    break;
-                case "JD":
-                    OnDirectionChanged(Directions.Down);
-                    break;
-                case "JR":
-                    OnDirectionChanged(Directions.Right);
-                    break;
-                case "JL":
-                    OnDirectionChanged(Directions.Left);
-                    break;
-                case "J0":
-                    OnAssemblerButtonPressed(AssemblerButtons.B0);
-                    break;
-                case "J1":
-                    OnAssemblerButtonPressed(AssemblerButtons.B1);
-                    break;
-                default:
-                    break;
+                if (i != 0)
+                {
+                    if (i % 2 == 0)
+                    {
+                        inputs.Add("" + serialInput[i - 2] + serialInput[i - 1]);
+                    }
+                }
+            }
+            foreach (var item in inputs)
+            {
+                switch (item)
+                {
+                    case "JU":
+                        OnDirectionChanged(Directions.Up);
+                        break;
+                    case "JD":
+                        OnDirectionChanged(Directions.Down);
+                        break;
+                    case "JR":
+                        OnDirectionChanged(Directions.Right);
+                        break;
+                    case "JL":
+                        OnDirectionChanged(Directions.Left);
+                        break;
+                    case "J0":
+                        OnAssemblerButtonPressed(AssemblerButtons.B0);
+                        break;
+                    case "J1":
+                        OnAssemblerButtonPressed(AssemblerButtons.B1);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -166,25 +209,39 @@ namespace CustomControl
         /// <param name="serialInput"></param>
         private void GetCuttingInput(string serialInput)
         {
-            switch (serialInput)
+            List<string> inputs = new List<string>();
+            for (int i = 0; i <= serialInput.Length; i++)
             {
-                case "C0":
-                    OnCuttingButtonPressed(CuttingButtons.B0);
-                    break;
-                case "C1":
-                    OnCuttingButtonPressed(CuttingButtons.B1);
-                    break;
-                case "C2":
-                    OnCuttingButtonPressed(CuttingButtons.B2);
-                    break;
-                case "C3":
-                    OnCuttingButtonPressed(CuttingButtons.B3);
-                    break;
-                case "CS":
-                    OnCuttingAction(CuttingActions.Cutting);
-                    break;
-                default:
-                    break;
+                if (i != 0)
+                {
+                    if (i % 2 == 0)
+                    {
+                        inputs.Add("" + serialInput[i - 2] + serialInput[i - 1]);
+                    }
+                }
+            }
+            foreach (var item in inputs)
+            {
+                switch (item)
+                {
+                    case "C0":
+                        OnCuttingButtonPressed(CuttingButtons.B0);
+                        break;
+                    case "C1":
+                        OnCuttingButtonPressed(CuttingButtons.B1);
+                        break;
+                    case "C2":
+                        OnCuttingButtonPressed(CuttingButtons.B2);
+                        break;
+                    case "C3":
+                        OnCuttingButtonPressed(CuttingButtons.B3);
+                        break;
+                    case "CS":
+                        OnCuttingAction(CuttingActions.Cutting);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -194,6 +251,8 @@ namespace CustomControl
             {
                 if (!IsOpen)
                 {
+                    PortName = SerialPort.GetPortNames()[0];
+                    BaudRate = 9600;
                     _serialPort.Open();
                     Task.Run(() => ReadInput());
                 }
@@ -223,7 +282,7 @@ namespace CustomControl
                 Debug.WriteLine("Connection couldn't be opened");
             }
         }
-        
+
         #region Event raisers
 
 

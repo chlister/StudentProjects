@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CustomControl;
 using CustomControl.Input;
 using CustomControl.Event;
-
+using System.IO.Ports;
 
 namespace TestLibraryoutput
 {
@@ -14,19 +14,22 @@ namespace TestLibraryoutput
     {
         static void Main(string[] args)
         {
-            ConnectSerial cs = new ConnectSerial("COM6", 9600);
+            ConnectSerial cs = new ConnectSerial();
             cs.CuttingButtonPressed += Cs_CuttingButtonPressed;
+            cs.CuttingAction += Cs_CuttingAction;
             cs.OpenConnection();
+            Console.ReadLine();
+        }
 
-            while (true)
-            {
-
-            }
+        private static void Cs_CuttingAction(object sender, CuttingEventArgs e)
+        {
+            Console.WriteLine("CUTTING!!!!!!");
         }
 
         private static void Cs_CuttingButtonPressed(object sender, ButtonEventArgs<CuttingButtons> bea)
         {
-            Console.WriteLine(bea.Button);
+
+            Console.WriteLine("Cutton button pressed " +bea.Button);
         }
     }
 }
