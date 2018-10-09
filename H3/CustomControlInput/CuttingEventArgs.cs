@@ -14,10 +14,4 @@ namespace CustomControlInput
             Action = action;
         }
     }
-
-    public enum CuttingActions
-    {
-        Idle,
-        Cutting
-    }
 }

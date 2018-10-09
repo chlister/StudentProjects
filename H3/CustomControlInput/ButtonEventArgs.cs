@@ -14,27 +14,4 @@ namespace CustomControlInput
             Button = button;
         }
     }
-    public enum FryButtons
-    {
-        B0,
-        B1,
-        B2
-    }
-    public enum PotButtons
-    {
-        B0,
-        B1
-    }
-    public enum CuttingButtons
-    {
-        B0,
-        B1,
-        B2,
-        B3
-    }
-    public enum AssemblerButtons
-    {
-        B0,
-        B1
-    }
 }

@@ -41,11 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblerButtons.cs" />
     <Compile Include="ButtonEventArgs.cs" />
     <Compile Include="ConnectSerial.cs" />
+    <Compile Include="CuttingActions.cs" />
+    <Compile Include="CuttingButtons.cs" />
     <Compile Include="CuttingEventArgs.cs" />
     <Compile Include="DirectionEventArgs.cs" />
+    <Compile Include="Directions.cs" />
+    <Compile Include="FryButtons.cs" />
     <Compile Include="FryEventArgs.cs" />
+    <Compile Include="PotButtons.cs" />
     <Compile Include="PotEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
