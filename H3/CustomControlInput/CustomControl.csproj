@@ -41,18 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblerButtons.cs" />
-    <Compile Include="ButtonEventArgs.cs" />
+    <Compile Include="Input\FryState.cs" />
+    <Compile Include="Input\AssemblerButtons.cs" />
+    <Compile Include="Event\ButtonEventArgs.cs" />
     <Compile Include="ConnectSerial.cs" />
-    <Compile Include="CuttingActions.cs" />
-    <Compile Include="CuttingButtons.cs" />
-    <Compile Include="CuttingEventArgs.cs" />
-    <Compile Include="DirectionEventArgs.cs" />
-    <Compile Include="Directions.cs" />
-    <Compile Include="FryButtons.cs" />
-    <Compile Include="FryEventArgs.cs" />
-    <Compile Include="PotButtons.cs" />
-    <Compile Include="PotEventArgs.cs" />
+    <Compile Include="Input\CuttingActions.cs" />
+    <Compile Include="Input\CuttingButtons.cs" />
+    <Compile Include="Event\CuttingEventArgs.cs" />
+    <Compile Include="Event\DirectionEventArgs.cs" />
+    <Compile Include="Input\Directions.cs" />
+    <Compile Include="Input\FryButtons.cs" />
+    <Compile Include="Event\FryEventArgs.cs" />
+    <Compile Include="Input\PotButtons.cs" />
+    <Compile Include="Event\PotEventArgs.cs" />
+    <Compile Include="Input\PotState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,12 +3,15 @@ using System.IO;
 using System.IO.Ports;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Threading;
+using CustomControl.Input;
+using CustomControl.Event;
 
-namespace CustomControlInput
+namespace CustomControl
 {
     public class ConnectSerial
     {
+        #region Fields & Properties
+
         // needed for opening the COM-port
         private readonly SerialPort _serialPort;
         public int BaudRate
@@ -25,6 +28,8 @@ namespace CustomControlInput
         {
             get { return _serialPort.IsOpen; }
         }
+        #endregion
+        #region Eventhandlers
 
         // delegate Eventhandlers 
         public event EventHandler<FryEventArgs> FryStateChanged;
@@ -36,6 +41,7 @@ namespace CustomControlInput
         public event EventHandler<ButtonEventArgs<AssemblerButtons>> AssemblerButtonPressed;
         public event EventHandler<ButtonEventArgs<PotButtons>> PotButtonPressed;
 
+        #endregion
 
         public ConnectSerial(string portName, int baudRate)
         {

@@ -1,4 +1,4 @@
-﻿namespace CustomControlInput
+﻿namespace CustomControl.Input
 {
     public enum PotButtons
     {
