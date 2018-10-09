@@ -13,7 +13,7 @@ namespace CustomControl
         #region Fields & Properties
 
         // needed for opening the COM-port
-        private readonly SerialPort _serialPort;
+        private SerialPort _serialPort;
         public int BaudRate
         {
             get { return _serialPort.BaudRate; }
@@ -29,6 +29,7 @@ namespace CustomControl
             get { return _serialPort.IsOpen; }
         }
         #endregion
+
         #region Eventhandlers
 
         // delegate Eventhandlers 
@@ -45,6 +46,7 @@ namespace CustomControl
 
         public ConnectSerial(string portName, int baudRate)
         {
+            _serialPort = new SerialPort();
             PortName = portName;
             BaudRate = baudRate;
         }
@@ -221,6 +223,7 @@ namespace CustomControl
                 Debug.WriteLine("Connection couldn't be opened");
             }
         }
+        
         #region Event raisers
 
 
