@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomControlInput
 {
-    class CuttingEventArgs : EventArgs
+    public class CuttingEventArgs : EventArgs
     {
         public CuttingActions Action { get; }
         public CuttingEventArgs(CuttingActions action)
@@ -15,7 +15,7 @@ namespace CustomControlInput
         }
     }
 
-    enum CuttingActions
+    public enum CuttingActions
     {
         Idle,
         Cutting

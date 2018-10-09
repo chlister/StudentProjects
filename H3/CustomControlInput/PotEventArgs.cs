@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomControlInput
 {
-    class PotEventArgs :EventArgs
+    public class PotEventArgs : EventArgs
     {
         public PotState State { get; set; }
         public PotEventArgs(PotState state)
