@@ -39,17 +39,6 @@ namespace ArduinoOutput
                 {
                     Task.Run(() => GetDirection(serialInput));
                 }
-                //switch (serialInput)
-                //{
-                //    case "Button:":
-                //        await Task.Run(() => GetButton(serialInput));
-                //        break;
-                //    case "Direction:":
-                //        await Task.Run(() => GetDirection(serialInput));
-                //        break;
-                //    default:
-                //        break;
-                //}
                 Thread.Sleep(100);
             }
         }
