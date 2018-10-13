@@ -245,13 +245,19 @@ namespace CustomControl
             }
         }
 
+        /// <summary>
+        /// Opens a connection to the first available COM port 
+        /// This method assumes that there is only one COM port open at the time.
+        /// After openening the port successfully a new thread reads the input from 
+        /// the COM port. 
+        /// </summary>
         public void OpenConnection()
         {
             try
             {
                 if (!IsOpen)
                 {
-                    PortName = SerialPort.GetPortNames()[0];
+                    PortName = SerialPort.GetPortNames()[0]; 
                     BaudRate = 9600;
                     _serialPort.Open();
                     Task.Run(() => ReadInput());
@@ -291,19 +297,16 @@ namespace CustomControl
             CuttingEventArgs cea = new CuttingEventArgs(cutting);
             CuttingAction?.Invoke(this, cea);
         }
-
         protected virtual void OnCuttingButtonPressed(CuttingButtons button)
         {
             ButtonEventArgs<CuttingButtons> bea = new ButtonEventArgs<CuttingButtons>(button);
             CuttingButtonPressed?.Invoke(this, bea);
         }
-
         protected virtual void OnPotStateChanged(PotState state)
         {
             PotEventArgs pea = new PotEventArgs(state);
             PotStateChanged?.Invoke(this, pea);
-        }
-
+        } 
         protected virtual void OnDirectionChanged(Directions dir)
         {
             DirectionEventArgs dea = new DirectionEventArgs(dir);
