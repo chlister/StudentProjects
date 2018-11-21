@@ -62,7 +62,6 @@ namespace CustomControl
                 serialInput = _serialPort.ReadExisting();
                 if (serialInput.Contains("C"))
                 {
-                    //GetCuttingInput(serialInput);
                     Task.Run(() => GetCuttingInput(serialInput));
                 }
                 if (serialInput.Contains("J"))
@@ -151,7 +150,12 @@ namespace CustomControl
                     case "F2":
                         OnFryButtonPressed(FryButtons.B2);
                         break;
-                    // TODO: Missing function
+                    case "FT":
+                        OnFryStateChanged(FryState.FryOn);
+                        break;
+                    case "FF":
+                        OnFryStateChanged(FryState.FryOff);
+                        break;
                     default:
                         break;
                 }
@@ -257,7 +261,7 @@ namespace CustomControl
             {
                 if (!IsOpen)
                 {
-                    PortName = SerialPort.GetPortNames()[0]; 
+                    PortName = SerialPort.GetPortNames()[0];
                     BaudRate = 9600;
                     _serialPort.Open();
                     Task.Run(() => ReadInput());
@@ -306,7 +310,7 @@ namespace CustomControl
         {
             PotEventArgs pea = new PotEventArgs(state);
             PotStateChanged?.Invoke(this, pea);
-        } 
+        }
         protected virtual void OnDirectionChanged(Directions dir)
         {
             DirectionEventArgs dea = new DirectionEventArgs(dir);
@@ -317,6 +321,12 @@ namespace CustomControl
             ButtonEventArgs<FryButtons> bea = new ButtonEventArgs<FryButtons>(buttons);
             FryButtonPressed?.Invoke(this, bea);
         }
+        protected virtual void OnFryStateChanged(FryState state)
+        {
+            FryEventArgs fea = new FryEventArgs(state);
+            FryStateChanged?.Invoke(this, fea);
+        }
+
         protected virtual void OnAssemblerButtonPressed(AssemblerButtons buttons)
         {
             ButtonEventArgs<AssemblerButtons> bea = new ButtonEventArgs<AssemblerButtons>(buttons);
