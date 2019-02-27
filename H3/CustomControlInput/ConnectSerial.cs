@@ -261,7 +261,8 @@ namespace CustomControl
             {
                 if (!IsOpen)
                 {
-                    PortName = SerialPort.GetPortNames()[0];
+                    //PortName = SerialPort.GetPortNames()[0];
+                    PortName = "COM3";
                     BaudRate = 9600;
                     _serialPort.Open();
                     Task.Run(() => ReadInput());
@@ -290,6 +291,21 @@ namespace CustomControl
             catch (Exception)
             {
                 Debug.WriteLine("Connection couldn't be opened");
+            }
+        }
+
+        public void CloseConnection()
+        {
+            try
+            {
+                if (IsOpen)
+                {
+                    _serialPort.Close();
+                }
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Connection is closed");
             }
         }
 
